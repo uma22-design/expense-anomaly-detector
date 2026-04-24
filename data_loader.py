@@ -1,8 +1,3 @@
-"""
-data_loader.py
-Reads CSV/Excel uploads and validates required columns.
-"""
-
 import pandas as pd
 import streamlit as st
 import os
@@ -15,7 +10,6 @@ OPTIONAL_COLUMNS = {
     "payment_mode": "Unknown",
 }
 
-
 def load_data(file) -> pd.DataFrame:
     try:
         if file.name.endswith(".csv"):
@@ -23,7 +17,7 @@ def load_data(file) -> pd.DataFrame:
         elif file.name.endswith((".xlsx", ".xls")):
             df = pd.read_excel(file)
         else:
-            st.error("Unsupported file type. Upload a CSV or Excel file.")
+            st.error("Unsupported file type.")
             return None
         df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
         return validate_columns(df)
@@ -31,15 +25,15 @@ def load_data(file) -> pd.DataFrame:
         st.error(f"Error loading file: {e}")
         return None
 
-
 def load_sample_data() -> pd.DataFrame:
-    base = os.path.dirname(os.path.abspath(__file__))
-    base = os.path.dirname(base)
-    path = os.path.join(base, "data", "sample_expenses.csv")
+    path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "..", "data", "sample_expenses.csv"
+    )
+    path = os.path.normpath(path)
     df = pd.read_csv(path)
     df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
     return validate_columns(df)
-
 
 def validate_columns(df: pd.DataFrame) -> pd.DataFrame:
     missing = REQUIRED_COLUMNS - set(df.columns)
