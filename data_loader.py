@@ -3,7 +3,6 @@ import streamlit as st
 import os
 
 REQUIRED_COLUMNS = {"date", "vendor", "category", "amount"}
-
 OPTIONAL_COLUMNS = {
     "transaction_id": "TXN_AUTO",
     "department": "General",
@@ -28,9 +27,8 @@ def load_data(file) -> pd.DataFrame:
 def load_sample_data() -> pd.DataFrame:
     path = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
-        "..", "data", "sample_expenses.csv"
+        "data", "sample_expenses.csv"
     )
-    path = os.path.normpath(path)
     df = pd.read_csv(path)
     df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
     return validate_columns(df)
@@ -42,7 +40,3 @@ def validate_columns(df: pd.DataFrame) -> pd.DataFrame:
         return None
     for col, default in OPTIONAL_COLUMNS.items():
         if col not in df.columns:
-            df[col] = default
-    if "transaction_id" in df.columns and df["transaction_id"].iloc[0] == "TXN_AUTO":
-        df["transaction_id"] = [f"TXN{str(i+1).zfill(3)}" for i in range(len(df))]
-    return df
