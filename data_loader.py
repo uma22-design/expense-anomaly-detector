@@ -37,7 +37,8 @@ def load_data(file) -> pd.DataFrame:
 def load_sample_data() -> pd.DataFrame:
     """Load built-in sample dataset."""
     import os
-    base = os.path.dirname(os.path.dirname(__file__))
+    base = os.path.dirname(os.path.abspath(__file__))
+base = os.path.dirname(base)
     path = os.path.join(base, "data", "sample_expenses.csv")
     df = pd.read_csv(path)
     df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
