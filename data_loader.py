@@ -25,20 +25,11 @@ def load_data(file) -> pd.DataFrame:
         return None
 
 def load_sample_data() -> pd.DataFrame:
-    candidates = [
-        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "sample_expenses.csv"),
-        os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "sample_expenses.csv"),
-        "data/sample_expenses.csv",
-        "sample_expenses.csv",
-    ]
-    for path in candidates:
-        path = os.path.normpath(path)
-        if os.path.exists(path):
-            df = pd.read_csv(path)
-            df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
-            return validate_columns(df)
-    st.error("Sample data file not found. Please upload your own CSV.")
-    return None
+    base = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(base, "sample_expenses.csv")
+    df = pd.read_csv(path)
+    df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
+    return validate_columns(df)
 
 def validate_columns(df: pd.DataFrame) -> pd.DataFrame:
     missing = REQUIRED_COLUMNS - set(df.columns)
