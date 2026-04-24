@@ -1,0 +1,51 @@
+transaction_id,date,vendor,category,amount,department,payment_mode
+TXN001,2024-01-03,Staples,Office Supplies,1200,Admin,Corporate Card
+TXN002,2024-01-05,Delta Airlines,Travel,45000,Sales,Corporate Card
+TXN003,2024-01-07,Staples,Office Supplies,1150,Admin,Corporate Card
+TXN004,2024-01-08,Unknown Vendor XYZ,Miscellaneous,89000,Finance,Cash
+TXN005,2024-01-10,Zomato,Meals,850,HR,Corporate Card
+TXN006,2024-01-12,Amazon,IT Equipment,23000,IT,Corporate Card
+TXN007,2024-01-15,Swiggy,Meals,920,HR,Corporate Card
+TXN008,2024-01-17,IndiGo,Travel,8500,Operations,Corporate Card
+TXN009,2024-01-18,Reliance Petro,Fuel,3200,Operations,Petty Cash
+TXN010,2024-01-20,Amazon,IT Equipment,22500,IT,Corporate Card
+TXN011,2024-01-22,Staples,Office Supplies,1100,Admin,Corporate Card
+TXN012,2024-01-23,Ghost Corp LLC,Miscellaneous,125000,Finance,Cash
+TXN013,2024-01-25,Zomato,Meals,780,HR,Corporate Card
+TXN014,2024-01-26,IndiGo,Travel,9200,Sales,Corporate Card
+TXN015,2024-01-28,Reliance Petro,Fuel,3100,Operations,Petty Cash
+TXN016,2024-02-01,Delta Airlines,Travel,46000,Sales,Corporate Card
+TXN017,2024-02-02,Amazon,IT Equipment,21000,IT,Corporate Card
+TXN018,2024-02-04,Café Coffee Day,Meals,550,HR,Petty Cash
+TXN019,2024-02-05,Staples,Office Supplies,1300,Admin,Corporate Card
+TXN020,2024-02-07,Obscure Supplies Co,Office Supplies,18000,Admin,Cash
+TXN021,2024-02-09,Swiggy,Meals,900,HR,Corporate Card
+TXN022,2024-02-10,IndiGo,Travel,8800,Operations,Corporate Card
+TXN023,2024-02-12,Reliance Petro,Fuel,3400,Operations,Petty Cash
+TXN024,2024-02-14,Amazon,IT Equipment,23500,IT,Corporate Card
+TXN025,2024-02-15,Staples,Office Supplies,1050,Admin,Corporate Card
+TXN026,2024-02-17,Quick Fix Solutions,Miscellaneous,67000,HR,Cash
+TXN027,2024-02-19,Zomato,Meals,820,HR,Corporate Card
+TXN028,2024-02-20,IndiGo,Travel,9100,Sales,Corporate Card
+TXN029,2024-02-22,Café Coffee Day,Meals,600,HR,Petty Cash
+TXN030,2024-02-24,Reliance Petro,Fuel,3300,Operations,Petty Cash
+TXN031,2024-03-01,Delta Airlines,Travel,44000,Sales,Corporate Card
+TXN032,2024-03-03,Amazon,IT Equipment,22000,IT,Corporate Card
+TXN033,2024-03-05,Staples,Office Supplies,1200,Admin,Corporate Card
+TXN034,2024-03-06,Swiggy,Meals,870,HR,Corporate Card
+TXN035,2024-03-08,IndiGo,Travel,8700,Operations,Corporate Card
+TXN036,2024-03-10,Reliance Petro,Fuel,3150,Operations,Petty Cash
+TXN037,2024-03-12,Staples,Office Supplies,1100,Admin,Corporate Card
+TXN038,2024-03-13,Zomato,Meals,950,HR,Corporate Card
+TXN039,2024-03-15,Phantom Trade Inc,Miscellaneous,95000,Finance,Cash
+TXN040,2024-03-17,Amazon,IT Equipment,24000,IT,Corporate Card
+TXN041,2024-03-18,IndiGo,Travel,9300,Sales,Corporate Card
+TXN042,2024-03-20,Café Coffee Day,Meals,580,HR,Petty Cash
+TXN043,2024-03-22,Reliance Petro,Fuel,3200,Operations,Petty Cash
+TXN044,2024-03-24,Delta Airlines,Travel,47000,Sales,Corporate Card
+TXN045,2024-03-25,Staples,Office Supplies,1250,Admin,Corporate Card
+TXN046,2024-03-27,Duplicate Vendor A,IT Equipment,22000,IT,Cash
+TXN047,2024-03-27,Duplicate Vendor A,IT Equipment,22000,IT,Cash
+TXN048,2024-03-28,Swiggy,Meals,830,HR,Corporate Card
+TXN049,2024-03-30,IndiGo,Travel,8600,Operations,Corporate Card
+TXN050,2024-03-31,Reliance Petro,Fuel,3250,Operations,Petty Cash
