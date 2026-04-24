@@ -101,7 +101,10 @@ if "df_result" not in st.session_state:
     st.session_state.df_result = None
 
 if use_sample:
-    raw = load_sample_data()
+    import io
+sample_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "sample_expenses.csv")
+raw = pd.read_csv(sample_path)
+raw.columns = raw.columns.str.strip().str.lower().str.replace(" ", "_")
     if raw is not None:
         st.session_state.raw_df = raw
         st.session_state.df_result = None  # force reprocess
