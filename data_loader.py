@@ -5,6 +5,7 @@ Reads CSV/Excel uploads and validates required columns.
 
 import pandas as pd
 import streamlit as st
+import os
 
 REQUIRED_COLUMNS = {"date", "vendor", "category", "amount"}
 
@@ -16,7 +17,6 @@ OPTIONAL_COLUMNS = {
 
 
 def load_data(file) -> pd.DataFrame:
-    """Load uploaded file (CSV or Excel) into a DataFrame."""
     try:
         if file.name.endswith(".csv"):
             df = pd.read_csv(file)
@@ -25,20 +25,16 @@ def load_data(file) -> pd.DataFrame:
         else:
             st.error("Unsupported file type. Upload a CSV or Excel file.")
             return None
-
         df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
         return validate_columns(df)
-
     except Exception as e:
         st.error(f"Error loading file: {e}")
         return None
 
 
 def load_sample_data() -> pd.DataFrame:
-    """Load built-in sample dataset."""
-    import os
     base = os.path.dirname(os.path.abspath(__file__))
-base = os.path.dirname(base)
+    base = os.path.dirname(base)
     path = os.path.join(base, "data", "sample_expenses.csv")
     df = pd.read_csv(path)
     df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
@@ -46,17 +42,13 @@ base = os.path.dirname(base)
 
 
 def validate_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """Check required columns and fill missing optional columns."""
     missing = REQUIRED_COLUMNS - set(df.columns)
     if missing:
         st.error(f"Missing required columns: {', '.join(missing)}")
         return None
-
     for col, default in OPTIONAL_COLUMNS.items():
         if col not in df.columns:
             df[col] = default
-
     if "transaction_id" in df.columns and df["transaction_id"].iloc[0] == "TXN_AUTO":
         df["transaction_id"] = [f"TXN{str(i+1).zfill(3)}" for i in range(len(df))]
-
     return df
